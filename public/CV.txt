@@ -1,0 +1,23 @@
+Illia Novikov
++48512722912 | illia.novikov.3hunna@gmail.com | www.linkedin.com/in/illia-novikov300
+OBJECTIVE
+Enthusiastic and motivated computer science graduate with hands-on experience building and shipping own web
+applications. I’ve worked on real projects where I managed development, debugged issues, and delivered features
+end-to-end. Strong foundation in programming, problem-solving, and data analysis, with the ability to learn quickly
+and adapt. Looking to join a collaborative team where I can contribute meaningfully and continue growing as a
+developer.
+EDUCATION
+GPA: 4.9/5
+WSB Merito University | Wroclaw 2022-2026
+Bachelor’s degree in software development
+Relevant Courses: Computer Programming, Data Structures, Algorithms, AI, ML, Database Systems, IoT,
+Admin of Linux systems, Web Development, Software Engineering, Cloud Infrastructure, Graphic
+TECHNICAL SKILLS
+• Programming Languages: Python, SQL, JS, TS, C#, HTML/CSS
+• Databases: MySQL, PostgreSQL, MongoDB, MSSQL, Redis
+• Cloud Technologies: Azure, AWS
+• Frameworks: Pandas, NumPy, TensorFlow, Scikit-learn, DRF, Flask, FastAPI, React, Next.js, TailwindCSS
+• Tools and Technologies: MS Office, Git, Docker , bash, Jupyter Lab, Virtual Machines
+• Operating Systems: Windows, Linux, macOS
+• Languages: English, Polish, Ukrainian/Russian
+• Soft Skills: Problem-solving, Critical Thinking, Team Collaboration, Time Management, Innovative
