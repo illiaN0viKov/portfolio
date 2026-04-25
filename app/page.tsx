@@ -78,6 +78,7 @@ export default function Home() {
 
     const [readmeContent, setReadmeContent] = useState<string | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const [contactModal, setContactModal] = useState<{ isOpen: boolean; type: 'email' | 'phone' | null; copied: boolean }>({ isOpen: false, type: null, copied: false });
 
   const openReadme = async (path: string) => {
   try {
@@ -93,8 +94,7 @@ export default function Home() {
 const copyToClipboard = async (text: string) => {
   try {
     await navigator.clipboard.writeText(text);
-    // optional feedback
-    alert("Copied to clipboard");
+    setContactModal(prev => ({ ...prev, copied: true }));
   } catch (err) {
     console.error("Copy failed", err);
   }
@@ -161,9 +161,6 @@ const copyToClipboard = async (text: string) => {
               Crafting beautiful, modern web applications with elegant code
             </p>
 
-              <p className="text-5xl  text-red  md:text-2xl text-gray-600 mb-8 animate-fade-in-delay">
-              Crafting beautiful, modern web applications with elegant code
-            </p>
 
             {/* CV Highlights */}
             <div className="grid md:grid-cols-3 gap-6 mb-8 opacity-0 animate-fade-in-delay-2">
@@ -428,9 +425,9 @@ const copyToClipboard = async (text: string) => {
             I'm open to opportunities and would love to hear from you. Reach out through any channel.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="grid md:grid-cols-4 gap-6 mb-12">
             <a
-              onClick={() => copyToClipboard("illia.novikov.3hunna@gmail.com")}
+              onClick={() => setContactModal({ isOpen: true, type: 'email', copied: false })}
               className="group relative overflow-hidden rounded-3xl bg-white/60 backdrop-blur-sm border border-purple-200/50 p-8 hover:border-purple-400/80 transition-all duration-300 hover:bg-white/80 hover:shadow-lg hover:shadow-purple-300/20 hover:-translate-y-3 transform"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-purple-400/0 to-purple-300/0 group-hover:from-purple-400/10 group-hover:to-purple-300/10 transition-all duration-300"></div>
@@ -442,11 +439,10 @@ const copyToClipboard = async (text: string) => {
             </a>
 
             <a
-            onClick={() => copyToClipboard("+48512722912")}
+            onClick={() => setContactModal({ isOpen: true, type: 'phone', copied: false })}
               className="group relative overflow-hidden rounded-3xl bg-white/60 backdrop-blur-sm border border-purple-200/50 p-8 hover:border-purple-400/80 transition-all duration-300 hover:bg-white/80 hover:shadow-lg hover:shadow-purple-300/20 hover:-translate-y-3 transform"
             >
-              <div    onClick={() => copyToClipboard("illia.novikov.3hunna@gmail.com")}
-               className="absolute inset-0 bg-gradient-to-r from-purple-400/0 to-purple-300/0 group-hover:from-purple-400/10 group-hover:to-purple-300/10 transition-all duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-400/0 to-purple-300/0 group-hover:from-purple-400/10 group-hover:to-purple-300/10 transition-all duration-300"></div>
               <div className="relative z-10">
                 <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">📱</div>
                 <div className="font-bold text-lg text-purple-600 mb-2">Phone</div>
@@ -467,6 +463,30 @@ const copyToClipboard = async (text: string) => {
                 <div className="text-gray-600 group-hover:text-gray-700 transition-colors">Connect with me</div>
               </div>
             </a>
+
+            <a
+              href="https://github.com/illiaN0viKov/Projects"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-3xl bg-white/60 backdrop-blur-sm border border-purple-200/50 p-8 hover:border-purple-400/80 transition-all duration-300 hover:bg-white/80 hover:shadow-lg hover:shadow-purple-300/20 hover:-translate-y-3 transform"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-400/0 to-purple-300/0 group-hover:from-purple-400/10 group-hover:to-purple-300/10 transition-all duration-300"></div>
+              
+              <div className="relative z-10">
+                <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                  🧑‍💻
+                </div>
+                
+                <div className="font-bold text-lg text-purple-600 mb-2">
+                  GitHub
+                </div>
+                
+                <div className="text-gray-600 group-hover:text-gray-700 transition-colors">
+                  View my projects
+                </div>
+              </div>
+            </a>
+
           </div>
 
           <button className="px-10 py-4 bg-gradient-to-r from-purple-600 to-purple-500 rounded-full font-semibold text-lg text-white hover:shadow-2xl hover:shadow-purple-400/40 transition-all duration-300 transform hover:scale-105">
@@ -561,6 +581,39 @@ const copyToClipboard = async (text: string) => {
   <div className="prose prose-purple max-w-none">
     <ReactMarkdown>{readmeContent}</ReactMarkdown>
   </div>
+    </div>
+  </div>
+)}
+
+{/* Contact Copy Modal */}
+{contactModal.isOpen && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+    <div className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-sm mx-4 relative">
+      <button
+        onClick={() => setContactModal({ isOpen: false, type: null, copied: false })}
+        className="absolute top-6 right-6 text-gray-400 hover:text-purple-600 text-2xl transition-colors duration-200"
+      >
+        ✕
+      </button>
+
+      <div className="text-center">
+        <div className="text-5xl mb-4">
+          {contactModal.type === 'email' ? '📧' : '📱'}
+        </div>
+        <h3 className="text-2xl font-bold text-purple-600 mb-2">
+          {contactModal.type === 'email' ? 'Email' : 'Phone'}
+        </h3>
+        <p className="text-gray-700 text-lg mb-6">
+          {contactModal.type === 'email' ? 'illia.novikov.3hunna@gmail.com' : '+48 512 722 912'}
+        </p>
+
+        <button
+          onClick={() => copyToClipboard(contactModal.type === 'email' ? 'illia.novikov.3hunna@gmail.com' : '+48512722912')}
+          className="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-purple-400/40 transition-all duration-300 transform hover:scale-105"
+        >
+          {contactModal.copied ? '✓ Copied to clipboard!' : 'Copy to clipboard'}
+        </button>
+      </div>
     </div>
   </div>
 )}
