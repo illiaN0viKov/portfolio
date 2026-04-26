@@ -29,6 +29,19 @@ const projects: Project[] = [
     link: "https://elegant-beats.vercel.app/",
     readme:"/beats/about project.md"
   },
+
+    {
+    id: 'lyfevents',
+    title: 'LyfEvents',
+    description: 'Event discovery and social platform with live messaging, user profiles, and real-time communication via WebSockets.',
+    tags: ['events', 'social', 'realtime', "chat"],
+    images: ['/lyfevents/Screenshot 2026-04-25 142734.png', '/lyfevents/Screenshot 2026-04-25 142743.png', '/lyfevents/Screenshot 2026-04-25 142757.png'],
+    features: ['Event discovery', 'Live messaging', 'User profiles', 'Event management', 'Real-time communication'],
+    tech: ['React', 'Django', 'WebSockets', 'Redis', 'MySQL', 'Azure'],
+    link:"https://www.lyfevents.pl/",
+    readme:"/lyfevents/about project.md"
+  },
+  
   {
     id: 'ideasgrave',
     title: 'Ideas Grave',
@@ -51,17 +64,7 @@ const projects: Project[] = [
     link:"https://job-hunt-six-virid.vercel.app/",
     readme:"/job-hunter/about project.md"
   },
-  {
-    id: 'lyfevents',
-    title: 'LyfEvents',
-    description: 'Event discovery and social platform with live messaging, user profiles, and real-time communication via WebSockets.',
-    tags: ['events', 'social', 'realtime', "chat"],
-    images: ['/lyfevents/Screenshot 2026-04-25 142734.png', '/lyfevents/Screenshot 2026-04-25 142743.png', '/lyfevents/Screenshot 2026-04-25 142757.png'],
-    features: ['Event discovery', 'Live messaging', 'User profiles', 'Event management', 'Real-time communication'],
-    tech: ['React', 'Django', 'WebSockets', 'Redis', 'MySQL', 'Azure'],
-    link:"https://www.lyfevents.pl/",
-    readme:"/lyfevents/about project.md"
-  },
+
 ];
 
 const skills = {
